@@ -1,0 +1,113 @@
+#hero {
+  background-image: url("https://p.favim.com/orig/2018/07/30/pokemon-twitter-layout-Favim.com-6077980.jpg");
+  height: 400px;
+  width: 100%;
+  background-repeat: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#hero h1 {
+  color: #fff;
+  font-size: 4rem;
+  z-index: 2;
+}
+
+#hero p {
+  color: #fff;
+  z-index: 2;
+  font-size: 2rem;
+}
+
+#hero #overlay {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+}
+
+#pokemons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  transition: linear 0.2s;
+}
+
+.card p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+#popup > div {
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    font-weight: 800;
+}
+
+#popup img {
+    width: 80%;
+}
+
+#popup button {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    outline: none;
+    border: 0;
+    background-color: #fff;
+    font-size: 30px;
+}
+#popup button:hover {
+    color: #f00;
+}
+
+@media only screen and (min-width: 600px){
+  #pokemons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #popup > div {
+    width: 580px;
+  }
+  
+}
+
+@media only screen and (min-width: 768px) {
+  #pokemons {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+}
