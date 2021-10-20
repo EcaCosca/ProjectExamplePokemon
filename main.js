@@ -3,13 +3,14 @@ const pokemons = localStorage.getItem("pokemons");
 if (!!pokemons) {
   console.log("Getting pokemons from local storage");
   displayPokemons(JSON.parse(pokemons));
+  console.log(JSON.parse(pokemons))
 } else {
   fetch("https://pokeapi.co/api/v2/pokemon")
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
-      console.log(json);
+      console.log("THEN RESPONSE" + json);
       localStorage.setItem("pokemons", JSON.stringify(json.results));
       displayPokemons(json.results);
     });
@@ -24,22 +25,27 @@ function displayPokemons(array) {
     const name = document.createElement("p");
     const button = document.createElement("button");
 
+    console.log("element")
+    console.log(element)
+
     img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
       index + 1
     }.png`;
-    name.innerText = element.name[0].toUpperCase() + element.name.slice(1);
+    name.innerText = "#"+index+1 + ". " + element.name[0].toUpperCase() + element.name.slice(1);
     button.innerText = "Details";
 
-    div.className = "card";
-    button.classList = "btn btn-primary";
+    console.log(element)
 
-    button.addEventListener("click", function () {
+    div.className = "card";
+    // button.classList = "btn btn-primary";
+
+    div.addEventListener("click", function () {
       getPokemon(element.url, function (pokemon) {
         displayPokemon(pokemon);
       });
     });
 
-    div.append(img, name, button);
+    div.append(name, img);
 
     pokemonsContainer.append(div);
   });
